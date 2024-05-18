@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations.Design;
 using Microsoft.EntityFrameworkCore.Migrations.Operations;
+using Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.Migrations.Operations;
 
-namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions
+namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.Migrations.Design
 {
     public class ExtendedCSharpMigrationOperationGenerator : CSharpMigrationOperationGenerator
     {

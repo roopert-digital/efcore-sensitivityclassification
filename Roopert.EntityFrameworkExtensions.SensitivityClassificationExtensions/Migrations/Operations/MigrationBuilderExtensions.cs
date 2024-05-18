@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations.Operations.Builders;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions
+namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.Migrations.Operations
 {
     public static class MigrationBuilderExtensions
     {
@@ -14,7 +14,7 @@ namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions
         {
             Debugger.Break();
 
-            var operation = new AddSensitivityClassificationOperation(schemaName, tableName, columnName, 
+            var operation = new AddSensitivityClassificationOperation(schemaName, tableName, columnName,
                 new SensitivityClassificationItem(label, labelId, informationType, informationTypeId, rank));
 
             migrationBuilder.Operations.Add(operation);

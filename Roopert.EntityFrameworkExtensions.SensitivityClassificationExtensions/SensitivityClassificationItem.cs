@@ -1,6 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore.Storage;
-
-namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions
+﻿namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions
 {
     public class SensitivityClassificationItem
     {

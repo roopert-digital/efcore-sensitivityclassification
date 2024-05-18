@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Infrastructure;
 
-namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions
+namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.Infrastructure
 {
     public class SensitivityClassificationAnnotation : IAnnotation
     {

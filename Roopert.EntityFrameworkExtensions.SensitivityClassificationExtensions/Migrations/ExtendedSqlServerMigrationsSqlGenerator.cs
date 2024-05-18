@@ -4,8 +4,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Update;
+using Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.Migrations.Operations;
 
-namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions
+namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.Migrations
 {
     public class ExtendedSqlServerMigrationsSqlGenerator : SqlServerMigrationsSqlGenerator
     {
@@ -22,7 +23,7 @@ namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions
                     Generate(addSensitivityClassificationOperation, builder, Dependencies.TypeMappingSource);
                     break;
 
-             // TODO remove classification
+                // TODO remove classification
 
                 default:
                     base.Generate(operation, model, builder);

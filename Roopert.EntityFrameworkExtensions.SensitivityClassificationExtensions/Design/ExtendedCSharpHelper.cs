@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Design.Internal;
 using Microsoft.EntityFrameworkCore.Storage;
 
-namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions;
+namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.Design;
 
 public class ExtendedCSharpHelper : CSharpHelper
 {

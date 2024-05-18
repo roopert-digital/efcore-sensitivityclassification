@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations.Operations;
 
-namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions
+namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.Migrations.Operations
 {
     public class AddSensitivityClassificationOperation : MigrationOperation
     {
