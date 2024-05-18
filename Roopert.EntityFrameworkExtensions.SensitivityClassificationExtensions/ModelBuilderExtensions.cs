@@ -15,7 +15,7 @@ namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions
 
                 foreach (var propertyInfo in type.GetProperties())
                 {
-                    var scAttributes = propertyInfo.GetCustomAttributes()
+                    var scAttributes = propertyInfo.GetCustomAttributes(false)
                         .Where(x => x.GetType() == typeof(SensitivityClassificationAttribute))
                         .Cast<SensitivityClassificationAttribute>();
 
