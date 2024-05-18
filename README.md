@@ -34,6 +34,21 @@ To annotate these in the ModelBuilder:
 
 ## Usage
 
+Once everything is set up, annotate sensitive properties as follows:
+
+```csharp
+public class Customer
+{
+    public int Id { get; set; }
+
+    [SensitivityClassification(label: "Name", informationType: "Confidential - GDPR")]
+    public string Firstname { get; set; }
+
+    [SensitivityClassification(label: "Name", informationType: "Confidential - GDPR")]
+    public string Lastname { get; set; }
+}
+```
+
 # Credits
 
 Thanks to https://github.com/VictordeBaare for doing the heavy lifting in https://github.com/VictordeBaare/EntityFrameworkExtensions. 
