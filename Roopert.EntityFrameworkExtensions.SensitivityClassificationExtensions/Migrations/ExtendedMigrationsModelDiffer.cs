@@ -18,11 +18,6 @@ namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.
         {
         }
 
-        public override IReadOnlyList<MigrationOperation> GetDifferences(IRelationalModel? source, IRelationalModel? target)
-        {
-            return base.GetDifferences(source, target);
-        }
-
         protected override IEnumerable<MigrationOperation> Diff(IColumn source, IColumn target, DiffContext diffContext)
         {
             var baseOperations = base.Diff(source, target, diffContext);
@@ -51,11 +46,23 @@ namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.
             else if (sourceAnn != null && targetAnn == null)
             {
                 // removed
+                yield return new DropSensitivityClassificationOperation(target.Table.Schema, target.Table.Name, target.Name);
             }
             else
             {
                 // possibly changed
-                //if(sourcAnn)
+                var ssc = sourceAnn.Value as SensitivityClassificationItem ?? throw new InvalidOperationException();
+                var tsc = targetAnn.Value as SensitivityClassificationItem ?? throw new InvalidOperationException();
+
+                if (
+                    (ssc.Label ?? string.Empty) != (tsc.Label ?? string.Empty)
+                    || (ssc.LabelId ?? string.Empty) != (tsc.LabelId ?? string.Empty)
+                    || (ssc.InformationType ?? string.Empty) != (tsc.InformationType ?? string.Empty)
+                    || (ssc.InformationTypeId ?? string.Empty) != (tsc.InformationTypeId ?? string.Empty)
+                    || (ssc.Rank ?? string.Empty) != (tsc.Rank ?? string.Empty))
+                {
+                    yield return new AddSensitivityClassificationOperation(target.Table.Schema, target.Table.Name, target.Name, tsc);
+                }
             }
         }
     }

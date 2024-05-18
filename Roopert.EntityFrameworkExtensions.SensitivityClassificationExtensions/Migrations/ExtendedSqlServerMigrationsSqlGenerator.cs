@@ -1,5 +1,4 @@
-﻿using System.Diagnostics;
-using Microsoft.EntityFrameworkCore.Metadata;
+﻿using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using Microsoft.EntityFrameworkCore.Storage;
@@ -16,15 +15,14 @@ namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.
 
         protected override void Generate(MigrationOperation operation, IModel? model, MigrationCommandListBuilder builder)
         {
-            Debugger.Launch();
             switch (operation)
             {
-                case AddSensitivityClassificationOperation addSensitivityClassificationOperation:
-                    Generate(addSensitivityClassificationOperation, builder, Dependencies.TypeMappingSource);
+                case AddSensitivityClassificationOperation addOperation:
+                    Generate(addOperation, builder, Dependencies.TypeMappingSource);
                     break;
-
-                // TODO remove classification
-
+                case DropSensitivityClassificationOperation dropOperation:
+                    Generate(dropOperation, builder, Dependencies.TypeMappingSource);
+                    break;
                 default:
                     base.Generate(operation, model, builder);
                     break;
@@ -74,6 +72,19 @@ namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.
                 builder.AppendLines(string.Join(",\r\n", options));
             }
             builder.AppendLine(");");
+            builder.EndCommand();
+        }
+
+        private void Generate(DropSensitivityClassificationOperation operation, MigrationCommandListBuilder builder, IRelationalTypeMappingSource dependenciesTypeMappingSource)
+        {
+            string tableIdentifier = operation.TableName;
+
+            if (!string.IsNullOrEmpty(operation.SchemaName))
+            {
+                tableIdentifier = $"{operation.SchemaName}.{tableIdentifier}";
+            }
+
+            builder.AppendLine($"DROP SENSITIVITY CLASSIFICATION FROM {tableIdentifier}.{operation.ColumnName}");
             builder.EndCommand();
         }
     }

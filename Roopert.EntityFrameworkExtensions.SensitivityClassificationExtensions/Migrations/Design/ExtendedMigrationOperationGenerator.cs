@@ -10,7 +10,6 @@ namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.
         public ExtendedCSharpMigrationOperationGenerator(CSharpMigrationOperationGeneratorDependencies dependencies)
             : base(dependencies)
         {
-            //Debugger.Launch();
         }
 
         protected override void Generate(MigrationOperation operation, IndentedStringBuilder builder)
@@ -31,9 +30,9 @@ namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.
                     Generate(create, builder);
                     break;
 
-                //case DropSensitivityClassificationOperation drop:
-                //    Generate(drop, builder);
-                //    break;
+                case DropSensitivityClassificationOperation drop:
+                    Generate(drop, builder);
+                    break;
 
                 default:
                     base.Generate(operation, builder);
@@ -75,10 +74,24 @@ namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.
 
                 if (operation.SensitivityClassification.Rank != null)
                 {
-                    options.Add($"rank = \"{operation.SensitivityClassification.Rank}\"");
+                    options.Add($"rank: \"{operation.SensitivityClassification.Rank}\"");
                 }
 
                 builder.AppendLines(string.Join(",\r\n", options));
+            }
+
+            builder.AppendLine(");");
+        }
+
+        private static void Generate(DropSensitivityClassificationOperation operation, IndentedStringBuilder builder)
+        {
+            builder.AppendLine(".DropSensitivityClassification(");
+
+            using (builder.Indent())
+            {
+                builder.AppendLine($"schemaName: \"{operation.SchemaName}\",");
+                builder.AppendLine($"tableName: \"{operation.TableName}\",");
+                builder.AppendLine($"columnName: \"{operation.ColumnName}\"");
             }
 
             builder.AppendLine(");");

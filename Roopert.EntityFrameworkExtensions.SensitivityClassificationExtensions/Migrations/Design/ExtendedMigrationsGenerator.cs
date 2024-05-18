@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations.Design;
 using Microsoft.EntityFrameworkCore.Migrations.Operations;
+using Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.Migrations.Operations;
 
 namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.Migrations.Design
 {
@@ -13,7 +14,7 @@ namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.
         protected override IEnumerable<string> GetNamespaces(IEnumerable<MigrationOperation> operations)
             => base.GetNamespaces(operations).Concat(new List<string>
             {
-                GetType().Namespace
+                typeof(MigrationBuilderExtensions).Namespace
             });
     }
 }
