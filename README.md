@@ -62,6 +62,10 @@ SQL statement documentation:
 * https://learn.microsoft.com/en-us/sql/t-sql/statements/add-sensitivity-classification-transact-sql?view=sql-server-ver15
 * https://learn.microsoft.com/en-us/sql/t-sql/statements/drop-sensitivity-classification-transact-sql?view=sql-server-ver16
 
+Feature being requested in efcore:
+* https://github.com/dotnet/efcore/issues/15693
+* https://github.com/dotnet/efcore/issues/20302
+
 EF Core docs on extending:
 * https://learn.microsoft.com/en-us/ef/core/miscellaneous/internals/tools
 * https://learn.microsoft.com/en-us/ef/core/cli/services
