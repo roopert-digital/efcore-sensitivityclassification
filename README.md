@@ -12,16 +12,18 @@ More specifically it supports creating and dropping columns sensitivity classifi
 
 ### Override Design time services
 
-1. To override the EF Core Design Time Services, add an `Properties\Assembly.cs` file with:
+To override the EF Core Design Time Services, add an `Properties\Assembly.cs` file with:
 
 `[assembly: DesignTimeServicesReference(
     "Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.Design.ExtendedDesignTimeServices, Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions")]`
 
-This makes sure the necessary Design Time Services are overridden with the extended versions. [^designtimeoverrides]
+This makes sure the necessary Design Time Services are overridden with the extended versions.
 
-[^designtimeoverrides] https://github.com/dotnet/efcore/issues/13690 and https://github.com/dotnet/efcore/issues/10154
+See also:
+* https://github.com/dotnet/efcore/issues/13690 
+* https://github.com/dotnet/efcore/issues/10154
 
-2. Reference `Microsoft.EntityFrameworkCore.Design` and change the `PagackeReference` as described in 
+Reference `Microsoft.EntityFrameworkCore.Design` and change the `PagackeReference` as described in 
 https://learn.microsoft.com/en-us/ef/core/cli/services
 
 ### Annotate the Classification Attributes
