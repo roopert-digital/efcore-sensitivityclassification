@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations.Operations.Builders;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
+using Microsoft.EntityFrameworkCore.Migrations.Operations.Builders;
 
-namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.Migrations.Operations
+namespace Roopert.EfCore.SensitivityClassifications.Migrations.Operations
 {
     public static class MigrationBuilderExtensions
     {

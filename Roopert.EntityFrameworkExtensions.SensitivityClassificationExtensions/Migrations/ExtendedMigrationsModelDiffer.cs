@@ -4,9 +4,9 @@ using Microsoft.EntityFrameworkCore.Migrations.Internal;
 using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Update.Internal;
-using Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.Migrations.Operations;
+using Roopert.EfCore.SensitivityClassifications.Migrations.Operations;
 
-namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.Migrations
+namespace Roopert.EfCore.SensitivityClassifications.Migrations
 {
     public class ExtendedMigrationsModelDiffer : MigrationsModelDiffer
     {

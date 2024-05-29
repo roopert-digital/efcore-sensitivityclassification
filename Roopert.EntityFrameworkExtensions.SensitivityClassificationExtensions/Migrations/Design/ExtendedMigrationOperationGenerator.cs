@@ -1,17 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations.Design;
 using Microsoft.EntityFrameworkCore.Migrations.Operations;
-using Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.Migrations.Operations;
+using Roopert.EfCore.SensitivityClassifications.Migrations.Operations;
 
-namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.Migrations.Design
+namespace Roopert.EfCore.SensitivityClassifications.Migrations.Design
 {
-    public class ExtendedCSharpMigrationOperationGenerator : CSharpMigrationOperationGenerator
+    public class ExtendedCSharpMigrationOperationGenerator(CSharpMigrationOperationGeneratorDependencies dependencies)
+        : CSharpMigrationOperationGenerator(dependencies)
     {
-        public ExtendedCSharpMigrationOperationGenerator(CSharpMigrationOperationGeneratorDependencies dependencies)
-            : base(dependencies)
-        {
-        }
-
         protected override void Generate(MigrationOperation operation, IndentedStringBuilder builder)
         {
             if (operation == null)

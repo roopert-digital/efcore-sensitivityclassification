@@ -1,4 +1,4 @@
-﻿namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions
+﻿namespace Roopert.EfCore.SensitivityClassifications
 {
     public class SensitivityClassificationItem
     {

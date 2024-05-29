@@ -1,14 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore.Design.Internal;
 using Microsoft.EntityFrameworkCore.Storage;
 
-namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.Design;
+namespace Roopert.EfCore.SensitivityClassifications.Design;
 
-public class ExtendedCSharpHelper : CSharpHelper
+public class ExtendedCSharpHelper(ITypeMappingSource typeMappingSource) : CSharpHelper(typeMappingSource)
 {
-    public ExtendedCSharpHelper(ITypeMappingSource typeMappingSource) : base(typeMappingSource)
-    {
-    }
-
     public override string UnknownLiteral(object? value)
     {
         if (value != null && value is SensitivityClassificationItem i)

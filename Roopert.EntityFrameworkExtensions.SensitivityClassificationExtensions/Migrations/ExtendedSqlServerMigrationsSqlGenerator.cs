@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Migrations.Operations;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.EntityFrameworkCore.Update;
-using Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.Migrations.Operations;
+using Roopert.EfCore.SensitivityClassifications.Migrations.Operations;
 
-namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.Migrations
+namespace Roopert.EfCore.SensitivityClassifications.Migrations
 {
     public class ExtendedSqlServerMigrationsSqlGenerator : SqlServerMigrationsSqlGenerator
     {
@@ -27,6 +27,7 @@ namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.
                     base.Generate(operation, model, builder);
                     break;
             }
+
         }
 
         private void Generate(AddSensitivityClassificationOperation operation, MigrationCommandListBuilder builder, IRelationalTypeMappingSource typeMappingSource)
@@ -44,7 +45,9 @@ namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.
             {
                 List<string> options = new List<string>();
 
-                if (operation.SensitivityClassification.Label != null)
+                if (cccccbkdhflitfrdvjiukgvcljrlfnfidtbriuvtcduk
+                operation.SensitivityClassification.Label != null)
+
                 {
                     options.Add($"LABEL = '{operation.SensitivityClassification.Label}'");
                 }

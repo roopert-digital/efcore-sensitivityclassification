@@ -1,10 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.EntityFrameworkCore.Migrations.Design;
 using Microsoft.Extensions.DependencyInjection;
-using Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.Migrations.Design;
+using Roopert.EfCore.SensitivityClassifications.Migrations.Design;
 
-namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions.Design
+namespace Roopert.EfCore.SensitivityClassifications.Design
 {
+    // ReSharper disable once UnusedMember.Global
+    // Referenced by Magic String
     public class ExtendedDesignTimeServices : IDesignTimeServices
     {
         public void ConfigureDesignTimeServices(IServiceCollection serviceCollection)

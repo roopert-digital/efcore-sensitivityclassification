@@ -1,4 +1,4 @@
-﻿namespace Roopert.EntityFrameworkExtensions.SensitivityClassificationExtensions
+﻿namespace Roopert.EfCore.SensitivityClassifications
 {
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
     public class SensitivityClassificationAttribute : Attribute
